@@ -1,0 +1,101 @@
+1. Bảng Users
+Lưu thông tin người dùng (Khách hàng, Quản lý, Nhân viên).
+
+sql
+Copy code
+CREATE TABLE Users (
+    user_id INT PRIMARY KEY IDENTITY,
+    name NVARCHAR(100) NOT NULL,
+    user_role NVARCHAR(50) CHECK (user_role IN ('Customer', 'Manager', 'Employee')),
+    phone_number NVARCHAR(20),
+    user_state NVARCHAR(50) CHECK (user_state IN ('active', 'frozen', 'hide'))
+);
+2. Bảng Employees
+Lưu thông tin nhân viên và trạng thái công việc.
+
+sql
+Copy code
+CREATE TABLE Employees (
+    emp_id INT PRIMARY KEY IDENTITY,
+    user_id INT FOREIGN KEY REFERENCES Users(user_id),
+    emp_state NVARCHAR(50) CHECK (emp_state IN ('accountant', 'purchase', 'saleperson'))
+);
+3. Bảng Cars
+Lưu thông tin xe.
+
+sql
+Copy code
+CREATE TABLE Cars (
+    car_id INT PRIMARY KEY IDENTITY,
+    car_model NVARCHAR(100),
+    car_state NVARCHAR(50) CHECK (car_state IN ('active', 'sold', 'hide')),
+    car_color NVARCHAR(50),
+    car_brand NVARCHAR(100),
+    car_price DECIMAL(18, 2),
+    car_availability BIT
+);
+4. Bảng CarComments
+Lưu bình luận về xe.
+
+sql
+Copy code
+CREATE TABLE CarComments (
+    comment_id INT PRIMARY KEY IDENTITY,
+    car_id INT FOREIGN KEY REFERENCES Cars(car_id),
+    user_id INT FOREIGN KEY REFERENCES Users(user_id),
+    comment NVARCHAR(MAX),
+    created_at DATETIME DEFAULT GETDATE()
+);
+5. Bảng CarOrders
+Lưu thông tin đơn đặt hàng xe.
+
+sql
+Copy code
+CREATE TABLE CarOrders (
+    order_id INT PRIMARY KEY IDENTITY,
+    car_id INT FOREIGN KEY REFERENCES Cars(car_id),
+    user_id INT FOREIGN KEY REFERENCES Users(user_id),
+    order_date DATETIME DEFAULT GETDATE(),
+    status NVARCHAR(50) CHECK (status IN ('pending', 'confirmed', 'completed', 'cancelled'))
+);
+6. Bảng CarSales
+Lưu thông tin hoá đơn bán xe.
+
+sql
+Copy code
+CREATE TABLE CarSales (
+    sale_id INT PRIMARY KEY IDENTITY,
+    car_id INT FOREIGN KEY REFERENCES Cars(car_id),
+    order_id INT FOREIGN KEY REFERENCES CarOrders(order_id),
+    sale_date DATETIME DEFAULT GETDATE(),
+    sale_price DECIMAL(18, 2)
+);
+7. Bảng Appointments
+Lưu thông tin cuộc hẹn liên quan đến xe.
+
+sql
+Copy code
+CREATE TABLE Appointments (
+    appointment_id INT PRIMARY KEY IDENTITY,
+    user_id INT FOREIGN KEY REFERENCES Users(user_id),
+    car_id INT FOREIGN KEY REFERENCES Cars(car_id),
+    appointment_date DATETIME NOT NULL,
+    status NVARCHAR(50) CHECK (status IN ('scheduled', 'completed', 'cancelled'))
+);
+8. Bảng Purchases
+Lưu thông tin nhập xe và điều kiện xe nhập.
+
+sql
+Copy code
+CREATE TABLE Purchases (
+    purchase_id INT PRIMARY KEY IDENTITY,
+    car_id INT FOREIGN KEY REFERENCES Cars(car_id),
+    purchase_date DATETIME DEFAULT GETDATE(),
+    purchase_price DECIMAL(18, 2),
+    condition NVARCHAR(255)
+);
+Sơ đồ quan hệ (ERD)
+Các bảng chính sẽ được liên kết qua các khoá chính và khoá ngoại:
+
+Users kết nối với Employees, CarOrders, CarComments, và Appointments.
+Cars kết nối với CarOrders, CarSales, CarComments, và Purchases.
