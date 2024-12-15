@@ -32,9 +32,9 @@
     <!-- Phần 3: Navigation -->
     <div class="header-bottom">
         <a href="Home.asp">Trang chủ</a>
-        <a href="Quanlyhethong/Quanlydiemdanh.asp">Quản lý người dùng</a>
+        <a href="Quanlyhethong/Quanlydiemdanh.asp">Quản lý điểm danh</a>
         <a href="Quanlyhethong/Quanlynhanvien.asp">Quản lý nhân viên</a>
-        <a href="Quanlyhethong/Quanlydoanhthu.asp">Quản lý điểm danh</a>
+        <a href="Quanlyhethong/Quanlydoanhthu.asp">Quản lý doanh thu</a>
         <a href="Quanlyhethong/Quanlythongtinxe.asp">Quản lý xe</a>
     </div>
 </div>
