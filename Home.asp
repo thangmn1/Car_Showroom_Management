@@ -16,33 +16,40 @@
     <main class="main-container">
         <!-- Dòng xe -->
         <div class="column">
-            <h2>DÒNG XE</h2>
+            <a href="BH_TIMKIEM_Timkiemvsdanhgia.asp" class="button">DÒNG XE</a>
             <div>
-                <p>Sedan</p>
+                <span class="clickable" onclick="location.href='BH_TIMKIEM_Timkiemvsdanhgia.asp'">Sedan</span>
                 <img src="wwroot/images/brands/toyota/3.png" alt="Sedan">
             </div>
             <div>
-                <p>SUV</p>
+                <span class="clickable" onclick="location.href='BH_TIMKIEM_Timkiemvsdanhgia.asp'">SUV</span>
                 <img src="wwroot/images/brands/toyota/2.png" alt="SUV">
             </div>
             <div>
-                <p>Bán tải</p>
+                <span class="clickable" onclick="location.href='BH_TIMKIEM_Timkiemvsdanhgia.asp'">Bán tải</span>
                 <img src="wwroot/images/brands/toyota/1.jpg" alt="Bán tải">
             </div>
         </div>
+    
+        <!-- Hình ảnh giữa -->
+        <div class="center-images">
+            <img src="wwroot/images/brands/toyota/5.png" alt="Ảnh minh họa 1">
+            <img src="wwroot/images/brands/toyota/5.png" alt="Ảnh minh họa 2">
+        </div>
+    
         <!-- Xe mới -->
         <div class="column">
-            <h2>XE MỚI</h2>
+            <a href="BH_TIMKIEM_Timkiemvsdanhgia.asp" class="button">XE MỚI</a>
             <div>
-                <p>2024</p>
+                <span class="clickable" onclick="location.href='BH_TIMKIEM_Timkiemvsdanhgia.asp'">2024</span>
                 <img src="wwroot/images/brands/toyota/3.png" alt="2024">
             </div>
             <div>
-                <p>2025</p>
+                <span class="clickable" onclick="location.href='BH_TIMKIEM_Timkiemvsdanhgia.asp'">2025</span>
                 <img src="wwroot/images/brands/toyota/2.png" alt="2025">
             </div>
             <div>
-                <p>2026</p>
+                <span class="clickable" onclick="location.href='BH_TIMKIEM_Timkiemvsdanhgia.asp'">2026</span>
                 <img src="wwroot/images/brands/toyota/1.jpg" alt="2026">
             </div>
         </div>

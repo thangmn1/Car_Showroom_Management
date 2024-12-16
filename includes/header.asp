@@ -19,23 +19,24 @@
             <img src="wwroot/images/logo/logo.png" alt="Logo">
         </div>
         <!-- Tiêu đề sẽ được thay thế bằng tên trang -->
-        <div class="header-title" id="header-title"></div>
+        <div class="header-title">
+            Car Showroom Management
+        </div>
         <div class="search-login">
             <div class="search-box">
                 <input type="text" placeholder="Tìm kiếm...">
                 <button>🔍</button>
             </div>
-            <a href="#" class="login-button">Đăng nhập</a>
+            
         </div>
     </div>
 
     <!-- Phần 3: Navigation -->
     <div class="header-bottom">
         <a href="Home.asp">Trang chủ</a>
-        <a href="Quanlyhethong/Quanlydiemdanh.asp">Quản lý điểm danh</a>
-        <a href="Quanlyhethong/Quanlynhanvien.asp">Quản lý nhân viên</a>
-        <a href="Quanlyhethong/Quanlydoanhthu.asp">Quản lý doanh thu</a>
-        <a href="Quanlyhethong/Quanlythongtinxe.asp">Quản lý xe</a>
+        <a href="Home_banhang.asp">Bán hàng</a>
+        <a href="Home_hethong.asp">Quản lý hệ thống</a>
+ >
     </div>
 </div>
 
